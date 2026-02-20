@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - LuxuryStay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <a href="index.html" class="logo">LuxuryStay</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container section">
+        <h1 class="section-title">Checkout</h1>
+        
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+            <div>
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1.5rem;">
+                    <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Guest Information</h2>
+                    <form id="checkoutForm">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <div>
+                                <label class="filter-label">First Name</label>
+                                <input type="text" class="input" style="width: 100%;" required>
+                            </div>
+                            <div>
+                                <label class="filter-label">Last Name</label>
+                                <input type="text" class="input" style="width: 100%;" required>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <label class="filter-label">Email</label>
+                            <input type="email" class="input" style="width: 100%;" required>
+                        </div>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <label class="filter-label">Phone Number</label>
+                            <input type="tel" class="input" style="width: 100%;" placeholder="+254 700 000 000" required>
+                        </div>
+                    </form>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Payment Method</h2>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+                        <button class="payment-method active" onclick="selectPayment('mpesa')">
+                            <span style="font-size: 1.5rem;">📱</span>
+                            <span>M-Pesa</span>
+                        </button>
+                        <button class="payment-method" onclick="selectPayment('card')">
+                            <span style="font-size: 1.5rem;">💳</span>
+                            <span>Card</span>
+                        </button>
+                        <button class="payment-method" onclick="selectPayment('paypal')">
+                            <span style="font-size: 1.5rem;">🅿️</span>
+                            <span>PayPal</span>
+                        </button>
+                        <button class="payment-method" onclick="selectPayment('bank')">
+                            <span style="font-size: 1.5rem;">🏦</span>
+                            <span>Bank Transfer</span>
+                        </button>
+                    </div>
+
+                    <div id="mpesa-form">
+                        <label class="filter-label">M-Pesa Phone Number</label>
+                        <input type="tel" class="input" style="width: 100%;" placeholder="+254 700 000 000">
+                    </div>
+
+                    <div id="card-form" style="display: none;">
+                        <div style="margin-bottom: 1rem;">
+                            <label class="filter-label">Card Number</label>
+                            <input type="text" class="input" style="width: 100%;" placeholder="1234 5678 9012 3456">
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div>
+                                <label class="filter-label">Expiry Date</label>
+                                <input type="text" class="input" style="width: 100%;" placeholder="MM/YY">
+                            </div>
+                            <div>
+                                <label class="filter-label">CVV</label>
+                                <input type="text" class="input" style="width: 100%;" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="bank-form" style="display: none;">
+                        <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <p style="font-weight: 600; margin-bottom: 0.5rem;">Bank Details:</p>
+                            <p style="font-size: 0.875rem; margin-bottom: 0.25rem;">Bank: Equity Bank Kenya</p>
+                            <p style="font-size: 0.875rem; margin-bottom: 0.25rem;">Account Name: LuxuryStay Ltd</p>
+                            <p style="font-size: 0.875rem; margin-bottom: 0.25rem;">Account Number: 0123456789</p>
+                            <p style="font-size: 0.875rem; margin-bottom: 0.25rem;">Branch: Malindi</p>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <label class="filter-label">Your Bank Name</label>
+                            <input type="text" class="input" style="width: 100%;" placeholder="Enter your bank name">
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <label class="filter-label">Transaction Reference</label>
+                            <input type="text" class="input" style="width: 100%;" placeholder="Enter transaction reference number">
+                        </div>
+                        <p style="font-size: 0.875rem; color: #666;">Please transfer the amount and enter the transaction reference above. Your booking will be confirmed once payment is verified.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: sticky; top: 100px;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Order Summary</h3>
+                    
+                    <div class="order-summary-items" style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #ddd;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Property (3 nights)</span>
+                            <span>KES 45,000</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Service Fee</span>
+                            <span>KES 2,000</span>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; font-size: 1.25rem; font-weight: bold; margin-bottom: 1.5rem;">
+                        <span>Total</span>
+                        <span class="total-amount" style="color: #f97316;">KES 47,000</span>
+                    </div>
+                    
+                    <button class="btn-primary" style="width: 100%; padding: 1rem;" onclick="processPayment()">
+                        Complete Payment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectPayment(method) {
+            document.querySelectorAll('.payment-method').forEach(btn => btn.classList.remove('active'))
+            event.target.closest('.payment-method').classList.add('active')
+            
+            document.getElementById('mpesa-form').style.display = method === 'mpesa' ? 'block' : 'none'
+            document.getElementById('card-form').style.display = method === 'card' ? 'block' : 'none'
+            document.getElementById('bank-form').style.display = method === 'bank' ? 'block' : 'none'
+        }
+
+        async function processPayment() {
+            const form = document.getElementById('checkoutForm')
+            if (!form.checkValidity()) {
+                form.reportValidity()
+                return
+            }
+            
+            // Get customer details from form
+            const customerName = document.querySelector('input[type="text"]').value + ' ' + document.querySelectorAll('input[type="text"]')[1].value
+            const customerEmail = document.querySelector('input[type="email"]').value
+            const customerPhone = document.querySelector('input[type="tel"]').value
+            
+            // Get selected payment method
+            const paymentMethod = document.querySelector('.payment-method.active').textContent.trim().toLowerCase()
+            
+            // Check if coming from cart or single booking
+            const checkoutCart = localStorage.getItem('checkoutCart')
+            
+            if (checkoutCart) {
+                // Process cart items
+                await processCartPayment(JSON.parse(checkoutCart), customerName, customerEmail, customerPhone, paymentMethod)
+            } else {
+                // Process single item
+                await processSinglePayment(customerName, customerEmail, customerPhone, paymentMethod)
+            }
+        }
+        
+        async function processCartPayment(cart, customerName, customerEmail, customerPhone, paymentMethod) {
+            try {
+                // Send booking notification for each item
+                const bookingPromises = cart.map(item => {
+                    const itemTotal = item.price * (item.days || 1) * (item.quantity || 1)
+                    
+                    // Mark BnBs and properties as booked
+                    if (item.type === 'bnb' || item.type === 'property') {
+                        markAsBooked(item.name)
+                    }
+                    
+                    return fetch('http://localhost:3000/api/booking-notifications', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            bookingType: item.type,
+                            itemName: item.name,
+                            customerName: customerName,
+                            customerEmail: customerEmail,
+                            customerPhone: customerPhone,
+                            price: `KES ${item.price.toLocaleString()}`,
+                            days: item.days || 1,
+                            totalAmount: itemTotal,
+                            paymentMethod: paymentMethod
+                        })
+                    })
+                })
+                
+                await Promise.all(bookingPromises)
+                
+                alert(`Payment processed successfully!\n\n${cart.length} booking(s) confirmed.\nConfirmation sent to your email.`)
+                
+                // Clear cart and checkout data
+                localStorage.removeItem('cart')
+                localStorage.removeItem('checkoutCart')
+                
+                setTimeout(() => {
+                    window.location.href = 'confirmation.html'
+                }, 1000)
+            } catch (error) {
+                console.error('Error:', error)
+                alert('Processing payment...\n\nBookings will be confirmed shortly.')
+                setTimeout(() => {
+                    window.location.href = 'confirmation.html'
+                }, 1000)
+            }
+        }
+        
+        function markAsBooked(propertyName) {
+            const bookedProperties = JSON.parse(localStorage.getItem('bookedProperties') || '[]')
+            if (!bookedProperties.includes(propertyName)) {
+                bookedProperties.push(propertyName)
+                localStorage.setItem('bookedProperties', JSON.stringify(bookedProperties))
+            }
+        }
+        
+        async function processSinglePayment(customerName, customerEmail, customerPhone, paymentMethod) {
+            // Get booking details from localStorage
+            const bookingType = localStorage.getItem('bookingType') || 'property'
+            const bookingName = localStorage.getItem('bookingName')
+            const bookingPrice = localStorage.getItem('bookingPrice')
+            const bookingDays = localStorage.getItem('bookingDays') || '1'
+            
+            // Calculate total
+            const priceMatch = bookingPrice ? bookingPrice.match(/[\d,]+/) : null
+            const price = priceMatch ? parseInt(priceMatch[0].replace(/,/g, '')) : 0
+            const days = parseInt(bookingDays)
+            const subtotal = price * days
+            const serviceFee = Math.round(subtotal * 0.05)
+            const totalAmount = subtotal + serviceFee
+            
+            // Send booking notification
+            try {
+                const response = await fetch('http://localhost:3000/api/booking-notifications', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        bookingType: bookingType,
+                        itemName: bookingName,
+                        customerName: customerName,
+                        customerEmail: customerEmail,
+                        customerPhone: customerPhone,
+                        price: bookingPrice,
+                        days: days,
+                        totalAmount: totalAmount,
+                        paymentMethod: paymentMethod
+                    })
+                })
+                
+                const data = await response.json()
+                
+                if (data.success) {
+                    // Mark as booked if it's a BnB or property
+                    if (bookingType === 'bnb' || bookingType === 'property') {
+                        markAsBooked(bookingName)
+                    }
+                    
+                    alert('Payment processed successfully!\n\nBooking confirmation sent to your email.')
+                    
+                    // Clear booking data
+                    localStorage.removeItem('bookingType')
+                    localStorage.removeItem('bookingName')
+                    localStorage.removeItem('bookingPrice')
+                    localStorage.removeItem('bookingDays')
+                    
+                    setTimeout(() => {
+                        window.location.href = 'confirmation.html'
+                    }, 1000)
+                } else {
+                    alert('Booking saved but email notification failed. We will contact you shortly.')
+                    setTimeout(() => {
+                        window.location.href = 'confirmation.html'
+                    }, 1000)
+                }
+            } catch (error) {
+                console.error('Error:', error)
+                alert('Processing payment...\n\nThis will be connected to M-Pesa/Stripe API')
+                setTimeout(() => {
+                    window.location.href = 'confirmation.html'
+                }, 1000)
+            }
+        }
+        
+        // Load booking details from localStorage or cart
+        window.addEventListener('DOMContentLoaded', function() {
+            // Check if coming from cart
+            const checkoutCart = localStorage.getItem('checkoutCart')
+            
+            if (checkoutCart) {
+                // Multiple items from cart
+                const cart = JSON.parse(checkoutCart)
+                displayCartCheckout(cart)
+            } else {
+                // Single item booking
+                const bookingType = localStorage.getItem('bookingType')
+                const bookingName = localStorage.getItem('bookingName')
+                const bookingPrice = localStorage.getItem('bookingPrice')
+                const bookingDays = localStorage.getItem('bookingDays') || '1'
+                
+                if (bookingName && bookingPrice) {
+                    displaySingleItemCheckout(bookingType, bookingName, bookingPrice, bookingDays)
+                }
+            }
+        })
+        
+        function displayCartCheckout(cart) {
+            const summaryDiv = document.querySelector('.order-summary-items')
+            if (!summaryDiv) return
+            
+            let subtotal = 0
+            let itemsHtml = ''
+            
+            const typeLabels = {
+                vehicle: '🚗 Car',
+                property: '🏠 Property',
+                bnb: '🏡 BnB',
+                transport: '🚕 Transport',
+                chef: '👨‍🍳 Chef'
+            }
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * (item.days || 1) * (item.quantity || 1)
+                subtotal += itemTotal
+                
+                const label = typeLabels[item.type] || item.type
+                const qty = item.quantity || 1
+                
+                itemsHtml += `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid #f3f4f6;">
+                        <div>
+                            <div style="font-weight: 600;">${label}: ${item.name}</div>
+                            <div style="font-size: 0.875rem; color: #666;">
+                                ${qty > 1 ? `${qty} × ` : ''}KES ${item.price.toLocaleString()}
+                                ${item.days > 1 ? ` × ${item.days} days` : ''}
+                            </div>
+                        </div>
+                        <span style="font-weight: 600;">KES ${itemTotal.toLocaleString()}</span>
+                    </div>
+                `
+            })
+            
+            const serviceFee = Math.round(subtotal * 0.05)
+            const total = subtotal + serviceFee
+            
+            summaryDiv.innerHTML = itemsHtml + `
+                <div style="display: flex; justify-content: space-between; margin-top: 1rem; padding-top: 1rem; border-top: 2px solid #e5e7eb;">
+                    <span>Subtotal</span>
+                    <span>KES ${subtotal.toLocaleString()}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+                    <span>Service Fee (5%)</span>
+                    <span>KES ${serviceFee.toLocaleString()}</span>
+                </div>
+            `
+            
+            document.querySelector('.total-amount').textContent = `KES ${total.toLocaleString()}`
+        }
+        
+        function displaySingleItemCheckout(bookingType, bookingName, bookingPrice, bookingDays) {
+            const summaryDiv = document.querySelector('.order-summary-items')
+            if (!summaryDiv) {
+                const priceMatch = bookingPrice.match(/[\d,]+/)
+                const price = priceMatch ? parseInt(priceMatch[0].replace(/,/g, '')) : 0
+                const days = parseInt(bookingDays)
+                const subtotal = price * days
+                const serviceFee = Math.round(subtotal * 0.05)
+                const total = subtotal + serviceFee
+                
+                // Determine booking type label
+                const typeLabels = {
+                    vehicle: '🚗 Car Rental',
+                    property: '🏠 Property',
+                    bnb: '🏡 BnB',
+                    transport: '🚕 Transport',
+                    chef: '👨‍🍳 Chef Service'
+                }
+                
+                const bookingLabel = typeLabels[bookingType] || 'Booking'
+                
+                summaryDiv.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>${bookingLabel}: ${bookingName} (${days} day${days > 1 ? 's' : ''})</span>
+                        <span>KES ${subtotal.toLocaleString()}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>Service Fee</span>
+                        <span>KES ${serviceFee.toLocaleString()}</span>
+                    </div>
+                `
+                
+                document.querySelector('.total-amount').textContent = `KES ${total.toLocaleString()}`
+            }
+        }
+    </script>
+
+    <style>
+        .payment-method {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+        
+        .payment-method:hover {
+            border-color: #f97316;
+        }
+        
+        .payment-method.active {
+            border-color: #f97316;
+            background: #fef3c7;
+        }
+    </style>
+</body>
+</html>

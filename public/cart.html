@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - LuxuryStay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <a href="index.html" class="logo">LuxuryStay</a>
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="properties.html" class="highlight">Properties</a>
+                    <a href="chefs.html">Chefs</a>
+                    <a href="transport.html">Transport</a>
+                    <a href="photography.html">Photography</a>
+                    <a href="attractions.html">Attractions</a>
+                </nav>
+                <div class="nav-actions">
+                    <button class="btn-text" onclick="window.location.href='cart.html'" style="position: relative;">
+                        🛒 Cart <span id="cartCount" style="background: #f97316; color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.75rem; margin-left: 4px;">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="properties-hero">
+        <div class="container">
+            <h1>Shopping Cart</h1>
+            <p style="font-size: 1.125rem; opacity: 0.9;">Review your items and proceed to checkout</p>
+        </div>
+    </div>
+
+    <div class="container section">
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+            <div>
+                <div id="cartItems" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <!-- Cart items will be loaded here -->
+                </div>
+            </div>
+
+            <div>
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: sticky; top: 100px;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Order Summary</h3>
+                    
+                    <div id="cartSummary" style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #ddd;">
+                        <!-- Summary will be loaded here -->
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; font-size: 1.25rem; font-weight: bold; margin-bottom: 1.5rem;">
+                        <span>Total</span>
+                        <span id="cartTotal" style="color: #f97316;">KES 0</span>
+                    </div>
+                    
+                    <button class="btn-primary" style="width: 100%; padding: 1rem;" onclick="proceedToCheckout()">
+                        Proceed to Checkout
+                    </button>
+                    
+                    <button class="btn-text" style="width: 100%; margin-top: 1rem;" onclick="window.location.href='index.html'">
+                        Continue Shopping
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxuryStay. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/cart.js"></script>
+</body>
+</html>

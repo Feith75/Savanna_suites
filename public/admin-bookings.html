@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Bookings - LuxuryStay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <a href="index.html" class="logo">LuxuryStay Admin</a>
+                <nav class="nav-links">
+                    <a href="host-dashboard.html">Dashboard</a>
+                    <a href="admin-bookings.html" class="highlight">Bookings</a>
+                    <a href="admin-messages.html">Messages</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container section">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h1 style="font-size: 2rem;">All Bookings</h1>
+            <button onclick="refreshBookings()" class="btn-primary">
+                🔄 Refresh
+            </button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem;">
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <h3 style="color: #666; font-size: 0.875rem; margin-bottom: 0.5rem;">Total Bookings</h3>
+                <p id="totalBookings" style="font-size: 2rem; font-weight: bold; color: #f97316;">0</p>
+            </div>
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <h3 style="color: #666; font-size: 0.875rem; margin-bottom: 0.5rem;">🚗 Car Rentals</h3>
+                <p id="carBookings" style="font-size: 2rem; font-weight: bold; color: #3b82f6;">0</p>
+            </div>
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <h3 style="color: #666; font-size: 0.875rem; margin-bottom: 0.5rem;">🏠 BnB Bookings</h3>
+                <p id="bnbBookings" style="font-size: 2rem; font-weight: bold; color: #10b981;">0</p>
+            </div>
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <h3 style="color: #666; font-size: 0.875rem; margin-bottom: 0.5rem;">Pending</h3>
+                <p id="pendingBookings" style="font-size: 2rem; font-weight: bold; color: #f59e0b;">0</p>
+            </div>
+        </div>
+
+        <div style="background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead style="background: #f3f4f6;">
+                        <tr>
+                            <th style="padding: 1rem; text-align:

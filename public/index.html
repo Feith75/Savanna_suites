@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxuryStay - Book Luxury Stays & Experiences in Kenya</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Inline critical CSS as fallback */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <a href="/" class="logo">LuxuryStay</a>
+                <nav class="nav-links">
+                    <a href="index.html" class="highlight">Home</a>
+                    <a href="properties.html">Properties</a>
+                    <a href="chefs.html">Chefs</a>
+                    <a href="transport.html">Transport</a>
+                    <a href="photography.html">Photography</a>
+                    <a href="attractions.html">Attractions</a>
+                    <a href="build-trip.html">Build My Trip</a>
+                </nav>
+                <div class="nav-actions">
+                    <button class="btn-text" onclick="window.location.href='cart.html'" style="position: relative;">
+                        🛒 Cart <span id="cartCount" class="cart-count" style="background: #f97316; color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.75rem; margin-left: 4px;">0</span>
+                    </button>
+                    <button class="btn-text" onclick="window.location.href='login.html'">Sign In</button>
+                    <button class="btn-primary" onclick="window.location.href='list-property.html'">List Property</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" style="position: relative; overflow: hidden;">
+        <!-- Image Slider -->
+        <div class="hero-slider" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+            <div class="slider-image active" style="background-image: url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1920&h=1080&fit=crop');"></div>
+            <div class="slider-image" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920&h=1080&fit=crop');"></div>
+            <div class="slider-image" style="background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920&h=1080&fit=crop');"></div>
+            <div class="slider-image" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&h=1080&fit=crop');"></div>
+            <div class="slider-image" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&h=1080&fit=crop');"></div>
+        </div>
+        
+        <div class="container" style="position: relative; z-index: 1;">
+            <h1 class="hero-title">Book Luxury Stays & Experiences in Kenya</h1>
+            <p class="hero-subtitle">Penthouses, Private Chefs, Rides & Curated Tours</p>
+            
+            <div class="search-card">
+                <div class="search-grid">
+                    <input type="text" id="location" placeholder="Location" class="input">
+                    <div class="date-input-wrapper" onclick="document.getElementById('checkIn').showPicker()">
+                        <input type="date" id="checkIn" class="input date-input">
+                        <label for="checkIn" class="date-label">
+                            📅 Check In
+                        </label>
+                    </div>
+                    <div class="date-input-wrapper" onclick="document.getElementById('checkOut').showPicker()">
+                        <input type="date" id="checkOut" class="input date-input">
+                        <label for="checkOut" class="date-label">
+                            📅 Check Out
+                        </label>
+                    </div>
+                    <input type="number" id="guests" placeholder="Guests" min="1" class="input">
+                </div>
+                <button class="btn-search" onclick="searchProperties()">Search Properties</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Luxury Properties</h2>
+            <div id="propertiesGrid" class="grid">
+                <!-- Sample properties with images -->
+                <div class="property-card" onclick="window.location.href='bnbs.html'" style="cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=500&h=300&fit=crop" alt="Ocean View Penthouse" class="property-image">
+                    <div class="property-content">
+                        <div class="property-header">
+                            <h3 class="property-title">Ocean View Penthouse</h3>
+                            <span class="property-rating">★ 4.9</span>
+                        </div>
+                        <p class="property-location">Malindi Beach, Kenya</p>
+                        <div class="property-details">
+                            <span>3 Beds</span>
+                            <span>2 Baths</span>
+                            <span>6 Guests</span>
+                        </div>
+                        <div class="property-amenities">
+                            <span class="amenity-tag">WiFi</span>
+                            <span class="amenity-tag">Pool</span>
+                            <span class="amenity-tag">AC</span>
+                        </div>
+                        <p class="property-price">KES 15,000 <span style="font-size: 0.875rem; color: #666;">/ night</span></p>
+                    </div>
+                </div>
+
+                <div class="property-card" onclick="window.location.href='bnbs.html'" style="cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=500&h=300&fit=crop" alt="Luxury Beach Villa" class="property-image">
+                    <div class="property-content">
+                        <div class="property-header">
+                            <h3 class="property-title">Luxury Beach Villa</h3>
+                            <span class="property-rating">★ 5.0</span>
+                        </div>
+                        <p class="property-location">Watamu, Kenya</p>
+                        <div class="property-details">
+                            <span>4 Beds</span>
+                            <span>3 Baths</span>
+                            <span>8 Guests</span>
+                        </div>
+                        <div class="property-amenities">
+                            <span class="amenity-tag">WiFi</span>
+                            <span class="amenity-tag">Pool</span>
+                            <span class="amenity-tag">Beach Access</span>
+                        </div>
+                        <p class="property-price">KES 25,000 <span style="font-size: 0.875rem; color: #666;">/ night</span></p>
+                    </div>
+                </div>
+
+                <div class="property-card" onclick="window.location.href='bnbs.html'" style="cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500&h=300&fit=crop" alt="Modern Penthouse" class="property-image">
+                    <div class="property-content">
+                        <div class="property-header">
+                            <h3 class="property-title">Modern Penthouse</h3>
+                            <span class="property-rating">★ 4.8</span>
+                        </div>
+                        <p class="property-location">Malindi Town, Kenya</p>
+                        <div class="property-details">
+                            <span>2 Beds</span>
+                            <span>2 Baths</span>
+                            <span>4 Guests</span>
+                        </div>
+                        <div class="property-amenities">
+                            <span class="amenity-tag">WiFi</span>
+                            <span class="amenity-tag">Gym</span>
+                            <span class="amenity-tag">Parking</span>
+                        </div>
+                        <p class="property-price">KES 12,000 <span style="font-size: 0.875rem; color: #666;">/ night</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Enhance Your Stay</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🍽️ Private Chef Service</h3>
+                    <p>Enjoy gourmet meals prepared by professional chefs</p>
+                    <a href="chefs.html" class="btn-link">Explore Chefs</a>
+                </div>
+                <div class="service-card">
+                    <h3>🚗 Ride & Transport</h3>
+                    <p>Airport pickup, chauffeur service, luxury car rental</p>
+                    <a href="transport.html" class="btn-link">View Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Places to Visit in Malindi</h2>
+            <div id="attractionsGrid" class="grid">
+                <div class="property-card" onclick="window.location.href='attractions.html'" style="cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=500&h=300&fit=crop" alt="Malindi Marine Park" class="property-image">
+                    <div class="property-content">
+                        <span class="amenity-tag">Nature & Marine</span>
+                        <h3 class="property-title">Malindi Marine National Park</h3>
+                        <p class="property-location">Beautiful coral reefs, snorkeling, and diving</p>
+                        <p class="property-price">KES 1,500</p>
+                    </div>
+                </div>
+
+                <div class="property-card" onclick="window.location.href='attractions.html'" style="cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&h=300&fit=crop" alt="Vasco da Gama Pillar" class="property-image">
+                    <div class="property-content">
+                        <span class="amenity-tag">Historical</span>
+                        <h3 class="property-title">Vasco da Gama Pillar</h3>
+                        <p class="property-location">Historic monument from 1498</p>
+                        <p class="property-price">KES 500</p>
+                    </div>
+                </div>
+
+                <div class="property-card" onclick="window.location.href='attractions.html'" style="cursor: pointer;">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" alt="Marafa Depression" class="property-image">
+                    <div class="property-content">
+                        <span class="amenity-tag">Natural Wonder</span>
+                        <h3 class="property-title">Marafa Depression (Hell's Kitchen)</h3>
+                        <p class="property-location">Stunning sandstone canyon</p>
+                        <p class="property-price">KES 300</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-brand">LuxuryStay</h3>
+                    <p>Book luxury stays and experiences in Kenya</p>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="chefs.html">Chefs</a></li>
+                        <li><a href="transport.html">Transport</a></li>
+                        <li><a href="photography.html">Photography</a></li>
+                        <li><a href="attractions.html">Attractions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxuryStay. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/cart.js"></script>
+    <script>
+        // Image slider functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slider-image');
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        // Auto-advance slides every 5 seconds
+        setInterval(nextSlide, 5000);
+        
+        // Set minimum date to today for check-in
+        const today = new Date().toISOString().split('T')[0];
+        const checkInInput = document.getElementById('checkIn');
+        const checkOutInput = document.getElementById('checkOut');
+        
+        checkInInput.setAttribute('min', today);
+        checkOutInput.setAttribute('min', today);
+        
+        // Update check-out minimum date when check-in changes
+        checkInInput.addEventListener('change', function() {
+            const checkInDate = this.value;
+            
+            // Set check-out minimum to the day after check-in
+            const nextDay = new Date(checkInDate);
+            nextDay.setDate(nextDay.getDate() + 1);
+            const minCheckOut = nextDay.toISOString().split('T')[0];
+            checkOutInput.setAttribute('min', minCheckOut);
+            
+            // Add has-value class when date is selected
+            if (this.value) {
+                this.classList.add('has-value');
+            } else {
+                this.classList.remove('has-value');
+            }
+            
+            // If check-out is before or equal to check-in, clear it
+            if (checkOutInput.value && checkOutInput.value <= checkInDate) {
+                checkOutInput.value = '';
+                checkOutInput.classList.remove('has-value');
+            }
+        });
+        
+        checkOutInput.addEventListener('change', function() {
+            if (this.value) {
+                this.classList.add('has-value');
+            } else {
+                this.classList.remove('has-value');
+            }
+        });
+    </script>
+    
+    <style>
+        .slider-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+        
+        .slider-image.active {
+            opacity: 0.4;
+        }
+        
+        .hero {
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(249,115,22,0.3));
+            z-index: 0;
+        }
+        
+        .date-input-wrapper {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .date-input {
+            position: relative;
+            cursor: pointer;
+            pointer-events: auto;
+        }
+        
+        /* Hide the default date format (mm/dd/yyyy) */
+        .date-input::-webkit-datetime-edit-text,
+        .date-input::-webkit-datetime-edit-month-field,
+        .date-input::-webkit-datetime-edit-day-field,
+        .date-input::-webkit-datetime-edit-year-field {
+            display: none;
+        }
+        
+        /* Show date when it has a value */
+        .date-input.has-value::-webkit-datetime-edit-text,
+        .date-input.has-value::-webkit-datetime-edit-month-field,
+        .date-input.has-value::-webkit-datetime-edit-day-field,
+        .date-input.has-value::-webkit-datetime-edit-year-field {
+            display: inline;
+            color: #333;
+        }
+        
+        .date-input::-webkit-calendar-picker-indicator {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            opacity: 0;
+        }
+        
+        .date-label {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #666;
+            font-size: 1rem;
+            z-index: 1;
+        }
+        
+        .date-input.has-value ~ .date-label {
+            display: none;
+        }
+    </style>
+</body>
+</html>

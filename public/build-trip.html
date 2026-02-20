@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build My Trip - LuxuryStay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <a href="index.html" class="logo">LuxuryStay</a>
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="properties.html">Properties</a>
+                    <a href="chefs.html">Chefs</a>
+                    <a href="transport.html">Transport</a>
+                    <a href="photography.html">Photography</a>
+                    <a href="attractions.html">Attractions</a>
+                    <a href="build-trip.html" class="highlight">Build My Trip</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container section">
+        <h1 class="section-title">Build My Complete Trip</h1>
+        <p style="color: #666; margin-bottom: 0.5rem;">Create your perfect vacation package</p>
+        <p style="color: #f97316; font-weight: 600; margin-bottom: 2rem;">✨ Save up to 15% when you bundle!</p>
+
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div style="background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h2 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">1. Select Property</h2>
+                    <div style="border: 2px solid #ddd; border-radius: 8px; padding: 1rem; cursor: pointer;" onclick="toggleSelection('property')">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <input type="checkbox" id="property-check">
+                            <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=100&h=80&fit=crop" style="width: 100px; height: 80px; border-radius: 8px; object-fit: cover;">
+                            <div style="flex: 1;">
+                                <h3 style="font-weight: bold;">Ocean View Penthouse</h3>
+                                <p style="font-size: 0.875rem; color: #666;">3 nights • 3 beds • 6 guests</p>
+                            </div>
+                            <p style="font-weight: bold; color: #f97316;">KES 45,000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h2 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">2. Add Private Chef (Optional)</h2>
+                    <div style="border: 2px solid #ddd; border-radius: 8px; padding: 1rem; cursor: pointer;" onclick="toggleSelection('chef')">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <input type="checkbox" id="chef-check">
+                            <div style="flex: 1;">
+                                <h3 style="font-weight: bold;">Chef Amina Hassan</h3>
+                                <p style="font-size: 0.875rem; color: #666;">Full day service • 3 days</p>
+                            </div>
+                            <p style="font-weight: bold; color: #f97316;">KES 24,000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h2 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">3. Add Transport (Optional)</h2>
+                    <div style="border: 2px solid #ddd; border-radius: 8px; padding: 1rem; cursor: pointer;" onclick="toggleSelection('ride')">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <input type="checkbox" id="ride-check">
+                            <div style="flex: 1;">
+                                <h3 style="font-weight: bold;">Airport Transfer + Daily Chauffeur</h3>
+                                <p style="font-size: 0.875rem; color: #666;">Pickup, drop-off & 3 days service</p>
+                            </div>
+                            <p style="font-weight: bold; color: #f97316;">KES 12,000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h2 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">4. Select Attractions (Optional)</h2>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <div style="border: 2px solid #ddd; border-radius: 8px; padding: 1rem; cursor: pointer;" onclick="toggleAttraction('Marine Park')">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <input type="checkbox" id="attraction-Marine Park">
+                                <div style="flex: 1;">
+                                    <h3 style="font-weight: bold;">Malindi Marine Park</h3>
+                                </div>
+                                <p style="font-weight: bold; color: #f97316;">KES 3,000</p>
+                            </div>
+                        </div>
+                        <div style="border: 2px solid #ddd; border-radius: 8px; padding: 1rem; cursor: pointer;" onclick="toggleAttraction('Vasco Pillar')">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <input type="checkbox" id="attraction-Vasco Pillar">
+                                <div style="flex: 1;">
+                                    <h3 style="font-weight: bold;">Vasco da Gama Pillar</h3>
+                                </div>
+                                <p style="font-weight: bold; color: #f97316;">KES 3,000</p>
+                            </div>
+                        </div>
+                        <div style="border: 2px solid #ddd; border-radius: 8px; padding: 1rem; cursor: pointer;" onclick="toggleAttraction('Marafa')">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <input type="checkbox" id="attraction-Marafa">
+                                <div style="flex: 1;">
+                                    <h3 style="font-weight: bold;">Marafa Depression</h3>
+                                </div>
+                                <p style="font-weight: bold; color: #f97316;">KES 3,000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div style="background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: sticky; top: 100px;">
+                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">Trip Summary</h3>
+                    <div id="items-list" style="margin-bottom: 1rem;">
+                        <p style="color: #666; font-size: 0.875rem;">No items selected</p>
+                    </div>
+
+                    <div style="border-top: 1px solid #ddd; padding-top: 1rem; margin-top: 1rem;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: #666; margin-bottom: 0.5rem;">
+                            <span>Subtotal</span>
+                            <span id="subtotal">KES 0</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: #16a34a; font-weight: 600; margin-bottom: 0.5rem;">
+                            <span>Bundle Discount (15%)</span>
+                            <span id="discount">-KES 0</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 1.25rem; font-weight: bold; border-top: 1px solid #ddd; padding-top: 0.75rem; margin-top: 0.75rem;">
+                            <span>Total</span>
+                            <span style="color: #f97316;" id="total">KES 0</span>
+                        </div>
+                    </div>
+
+                    <button class="btn-primary" style="width: 100%; margin-top: 1.5rem; padding: 1rem; font-size: 1rem;" onclick="bookPackage()">
+                        Book Complete Package
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/build-trip.js"></script>
+</body>
+</html>

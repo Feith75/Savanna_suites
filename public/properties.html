@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Properties - LuxuryStay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <a href="index.html" class="logo">LuxuryStay</a>
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="properties.html">Properties</a>
+                    <a href="chefs.html">Chefs</a>
+                    <a href="transport.html">Transport</a>
+                    <a href="photography.html">Photography</a>
+                    <a href="attractions.html">Attractions</a>
+                    <a href="build-trip.html" class="highlight">Build My Trip</a>
+                </nav>
+                <div class="nav-actions">
+                    <a href="cart.html" style="position: relative; margin-right: 1rem; text-decoration: none;">
+                        <span style="font-size: 1.5rem;">🛒</span>
+                        <span id="cartCount" class="cart-count" style="position: absolute; top: -8px; right: -8px; background: #f97316; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold;">0</span>
+                    </a>
+                    <button class="btn-text" onclick="window.location.href='login.html'">Sign In</button>
+                    <button class="btn-primary" onclick="window.location.href='list-property.html'">List Property</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="properties-hero">
+        <div class="container">
+            <h1>Luxury Properties & BnBs in Kenya</h1>
+            <p style="font-size: 1.125rem; opacity: 0.9;">Discover your perfect beachfront escape</p>
+        </div>
+    </div>
+
+    <div class="container" style="padding: 2rem 0;">
+        <div class="properties-layout">
+            <aside class="filter-sidebar" style="width: 280px;">
+                <h3 style="font-weight: bold; margin-bottom: 1.5rem; font-size: 1.125rem;">Filters</h3>
+                
+                <div class="filter-section">
+                    <label class="filter-label">Price Range</label>
+                    <input type="range" min="0" max="50000" value="50000" class="input" style="width: 100%;" id="priceRange">
+                    <div class="price-range-display">
+                        <span>KES 0</span>
+                        <span id="priceValue">KES 50,000</span>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <label class="filter-label">Property Type</label>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="penthouse">
+                        <label for="penthouse">Penthouse</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="villa">
+                        <label for="villa">Villa</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="apartment">
+                        <label for="apartment">Apartment</label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <label class="filter-label">Bedrooms</label>
+                    <select class="input" style="width: 100%;">
+                        <option>Any</option>
+                        <option>1+</option>
+                        <option>2+</option>
+                        <option>3+</option>
+                        <option>4+</option>
+                    </select>
+                </div>
+
+                <div class="filter-section">
+                    <label class="filter-label">Amenities</label>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="pool">
+                        <label for="pool">Swimming Pool</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="wifi">
+                        <label for="wifi">WiFi</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="kitchen">
+                        <label for="kitchen">Kitchen</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="parking">
+                        <label for="parking">Parking</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="beach">
+                        <label for="beach">Beach Access</label>
+                    </div>
+                </div>
+
+                <button class="btn-primary" style="width: 100%;" onclick="applyFilters()">Apply Filters</button>
+            </aside>
+
+            <div class="properties-grid-container">
+                <div class="sort-bar">
+                    <span class="results-count">Showing <strong>12</strong> properties</span>
+                    <select class="sort-select">
+                        <option>Recommended</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Highest Rated</option>
+                        <option>Most Popular</option>
+                    </select>
+                </div>
+
+                <div id="propertiesGrid" class="grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Virtual Tour Modal -->
+    <div id="virtualTourModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.9); z-index: 1000; overflow-y: auto;">
+        <div style="min-height: 100vh; padding: 2rem; display: flex; align-items: center; justify-content: center;">
+            <div style="max-width: 1200px; width: 100%; position: relative;">
+                <button onclick="closeVirtualTour()" style="position: absolute; top: -3rem; right: 0; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; z-index: 10;">×</button>
+                <div id="tourContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxuryStay. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/properties.js"></script>
+    <script>
+        // Price range slider
+        const priceRange = document.getElementById('priceRange')
+        const priceValue = document.getElementById('priceValue')
+        
+        priceRange.addEventListener('input', (e) => {
+            priceValue.textContent = `KES ${parseInt(e.target.value).toLocaleString()}`
+        })
+    </script>
+</body>
+</html>

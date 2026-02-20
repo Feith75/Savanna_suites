@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Chefs - LuxuryStay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <a href="/" class="logo">LuxuryStay</a>
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="properties.html">Properties</a>
+                    <a href="chefs.html" class="highlight">Chefs</a>
+                    <a href="transport.html">Transport</a>
+                    <a href="photography.html">Photography</a>
+                    <a href="attractions.html">Attractions</a>
+                    <a href="build-trip.html">Build My Trip</a>
+                </nav>
+                <a href="cart.html" style="position: relative; margin-left: auto; text-decoration: none;">
+                    <span style="font-size: 1.5rem;">🛒</span>
+                    <span id="cartCount" class="cart-count" style="position: absolute; top: -8px; right: -8px; background: #f97316; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold;">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container section">
+        <h1 class="section-title">Private Chef Services</h1>
+        <p style="color: #666; margin-bottom: 2rem;">Enjoy gourmet meals prepared by professional chefs during your stay</p>
+        
+        <div id="chefsGrid" class="grid">
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=500&h=300&fit=crop" alt="Chef Amina Hassan" class="property-image">
+                <div class="property-content">
+                    <div class="property-header">
+                        <h3 class="property-title">Chef Amina Hassan</h3>
+                        <span class="property-rating">★ 4.9</span>
+                    </div>
+                    <div class="property-amenities">
+                        <span class="amenity-tag">Swahili</span>
+                        <span class="amenity-tag">Seafood</span>
+                        <span class="amenity-tag">BBQ</span>
+                    </div>
+                    <p class="property-price">KES 8,000 / day</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 1rem;">
+                        <button class="btn-primary" style="background: #f97316;" onclick="addChefToCart('Chef Amina Hassan', 8000)">🛒 Cart</button>
+                        <button class="btn-primary" style="background: #10b981;" onclick="payChefNow('Chef Amina Hassan', 8000)">💳 Pay</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?w=500&h=300&fit=crop" alt="Chef David Omondi" class="property-image">
+                <div class="property-content">
+                    <div class="property-header">
+                        <h3 class="property-title">Chef David Omondi</h3>
+                        <span class="property-rating">★ 4.8</span>
+                    </div>
+                    <div class="property-amenities">
+                        <span class="amenity-tag">Italian</span>
+                        <span class="amenity-tag">French</span>
+                        <span class="amenity-tag">Fusion</span>
+                    </div>
+                    <p class="property-price">KES 10,000 / day</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 1rem;">
+                        <button class="btn-primary" style="background: #f97316;" onclick="addChefToCart('Chef David Omondi', 10000)">🛒 Cart</button>
+                        <button class="btn-primary" style="background: #10b981;" onclick="payChefNow('Chef David Omondi', 10000)">💳 Pay</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=500&h=300&fit=crop" alt="Chef Grace Wanjiru" class="property-image">
+                <div class="property-content">
+                    <div class="property-header">
+                        <h3 class="property-title">Chef Grace Wanjiru</h3>
+                        <span class="property-rating">★ 5.0</span>
+                    </div>
+                    <div class="property-amenities">
+                        <span class="amenity-tag">Vegan</span>
+                        <span class="amenity-tag">Healthy</span>
+                        <span class="amenity-tag">International</span>
+                    </div>
+                    <p class="property-price">KES 7,500 / day</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 1rem;">
+                        <button class="btn-primary" style="background: #f97316;" onclick="addChefToCart('Chef Grace Wanjiru', 7500)">🛒 Cart</button>
+                        <button class="btn-primary" style="background: #10b981;" onclick="payChefNow('Chef Grace Wanjiru', 7500)">💳 Pay</button>
+                    </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem;">
+            <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Service Options</h2>
+            <div style="display: flex; gap: 1rem;">
+                <div class="service-card" style="border: 2px solid #e5e7eb; border-radius: 8px; padding: 1.5rem; min-width: 250px; flex: 1; background: white;">
+                    <h3>🍳 Breakfast Only</h3>
+                    <p>Fresh breakfast prepared daily</p>
+                    <p style="color: #f97316; font-weight: bold; margin-bottom: 1rem;">From KES 2,000/day</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                        <button class="btn-primary" style="background: #f97316; padding: 0.5rem;" onclick="addServiceToCart('Breakfast Only', 2000)">🛒 Cart</button>
+                        <button class="btn-primary" style="background: #10b981; padding: 0.5rem;" onclick="payServiceNow('Breakfast Only', 2000)">💳 Pay</button>
+                    </div>
+                </div>
+                <div class="service-card" style="border: 2px solid #e5e7eb; border-radius: 8px; padding: 1.5rem; min-width: 250px; flex: 1; background: white;">
+                    <h3>🍽️ Full Day Service</h3>
+                    <p>Breakfast, lunch, and dinner</p>
+                    <p style="color: #f97316; font-weight: bold; margin-bottom: 1rem;">From KES 8,000/day</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                        <button class="btn-primary" style="background: #f97316; padding: 0.5rem;" onclick="addServiceToCart('Full Day Service', 8000)">🛒 Cart</button>
+                        <button class="btn-primary" style="background: #10b981; padding: 0.5rem;" onclick="payServiceNow('Full Day Service', 8000)">💳 Pay</button>
+                    </div>
+                </div>
+                <div class="service-card" style="border: 2px solid #e5e7eb; border-radius: 8px; padding: 1.5rem; min-width: 250px; flex: 1; background: white;">
+                    <h3>🥂 Romantic Dinner</h3>
+                    <p>Special 3-course dinner for two</p>
+                    <p style="color: #f97316; font-weight: bold; margin-bottom: 1rem;">From KES 5,000</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                        <button class="btn-primary" style="background: #f97316; padding: 0.5rem;" onclick="addServiceToCart('Romantic Dinner', 5000)">🛒 Cart</button>
+                        <button class="btn-primary" style="background: #10b981; padding: 0.5rem;" onclick="payServiceNow('Romantic Dinner', 5000)">💳 Pay</button>
+                    </div>
+                </div>
+                <div class="service-card" style="border: 2px solid #e5e7eb; border-radius: 8px; padding: 1.5rem; min-width: 250px; flex: 1; background: white;">
+                    <h3>🎉 Event Catering</h3>
+                    <p>For parties and celebrations</p>
+                    <p style="color: #f97316; font-weight: bold; margin-bottom: 1rem;">From KES 15,000</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                        <button class="btn-primary" style="background: #f97316; padding: 0.5rem;" onclick="addServiceToCart('Event Catering', 15000)">🛒 Cart</button>
+                        <button class="btn-primary" style="background: #10b981; padding: 0.5rem;" onclick="payServiceNow('Event Catering', 15000)">💳 Pay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxuryStay. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/chefs.js"></script>
+</body>
+</html>

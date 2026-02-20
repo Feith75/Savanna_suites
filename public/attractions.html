@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attractions - LuxuryStay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <a href="/" class="logo">LuxuryStay</a>
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="properties.html">Properties</a>
+                    <a href="chefs.html">Chefs</a>
+                    <a href="transport.html">Transport</a>
+                    <a href="photography.html">Photography</a>
+                    <a href="attractions.html">Attractions</a>
+                    <a href="build-trip.html" class="highlight">Build My Trip</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container section">
+        <h1 class="section-title">Places to Visit in Malindi</h1>
+        <p style="color: #666; margin-bottom: 2rem;">Discover the best attractions and experiences</p>
+
+        <div style="display: flex; gap: 1rem; margin-bottom: 2rem; overflow-x: auto;">
+            <button class="btn-primary">All</button>
+            <button class="btn-text" style="border: 1px solid #ddd; border-radius: 8px;">Nature & Marine</button>
+            <button class="btn-text" style="border: 1px solid #ddd; border-radius: 8px;">Historical</button>
+            <button class="btn-text" style="border: 1px solid #ddd; border-radius: 8px;">Wildlife</button>
+        </div>
+
+        <div class="grid">
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=500&h=300&fit=crop" alt="Malindi Marine Park" class="property-image">
+                <div class="property-content">
+                    <span class="amenity-tag">Nature & Marine</span>
+                    <h3 class="property-title">Malindi Marine National Park</h3>
+                    <p class="property-location">Beautiful coral reefs, snorkeling, diving, and glass-bottom boat tours</p>
+                    <div style="margin: 1rem 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: #666; font-size: 0.875rem;">Entry Fee:</span>
+                            <span style="font-weight: 600;">KES 1,500</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: #666; font-size: 0.875rem;">Duration:</span>
+                            <span style="font-weight: 600;">3 hours</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: #666; font-size: 0.875rem;">Best Time:</span>
+                            <span style="font-weight: 600; font-size: 0.75rem;">Morning (7am-11am)</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn-primary" style="flex: 1;" onclick="addToTrip(this)">Add to Trip</button>
+                        <button class="btn-text" style="flex: 1; border: 1px solid #f97316; color: #f97316; border-radius: 8px;" onclick="bookTour(this)">Book Tour</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&h=300&fit=crop" alt="Vasco da Gama Pillar" class="property-image">
+                <div class="property-content">
+                    <span class="amenity-tag">Historical & Cultural</span>
+                    <h3 class="property-title">Vasco da Gama Pillar</h3>
+                    <p class="property-location">Historic stone monument marking Portuguese explorer's visit in 1498</p>
+                    <div style="margin: 1rem 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: #666; font-size: 0.875rem;">Entry Fee:</span>
+                            <span style="font-weight: 600;">KES 500</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: #666; font-size: 0.875rem;">Duration:</span>
+                            <span style="font-weight: 600;">1 hour</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: #666; font-size: 0.875rem;">Best Time:</span>
+                            <span style="font-weight: 600; font-size: 0.75rem;">Late afternoon</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn-primary" style="flex: 1;">Add to Trip</button>
+                        <button class="btn-text" style="flex: 1; border: 1px solid #f97316; color: #f97316; border-radius: 8px;">Book Tour</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop" alt="Marafa Depression" class="property-image">
+                <div class="property-content">
+                    <span class="amenity-tag">Natural Wonder</span>
+                    <h3 class="property-title">Marafa Depression (Hell's Kitchen)</h3>
+                    <p class="property-location">Striking sandstone canyon with colorful rock formations that glow at sunset</p>
+                    <div style="margin: 1rem 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: #666; font-size: 0.875rem;">Entry Fee:</span>
+                            <span style="font-weight: 600;">KES 300</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: #666; font-size: 0.875rem;">Duration:</span>
+                            <span style="font-weight: 600;">2 hours</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: #666; font-size: 0.875rem;">Best Time:</span>
+                            <span style="font-weight: 600; font-size: 0.75rem;">4pm-6pm (sunset)</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn-primary" style="flex: 1;">Add to Trip</button>
+                        <button class="btn-text" style="flex: 1; border: 1px solid #f97316; color: #f97316; border-radius: 8px;">Book Tour</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=500&h=300&fit=crop" alt="Gede Ruins" class="property-image">
+                <div class="property-content">
+                    <span class="amenity-tag">Historical & Cultural</span>
+                    <h3 class="property-title">Gede Ruins</h3>
+                    <p class="property-location">Ancient Swahili town ruins surrounded by forest</p>
+                    <div style="margin: 1rem 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: #666; font-size: 0.875rem;">Entry Fee:</span>
+                            <span style="font-weight: 600;">KES 800</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: #666; font-size: 0.875rem;">Duration:</span>
+                            <span style="font-weight: 600;">2 hours</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: #666; font-size: 0.875rem;">Best Time:</span>
+                            <span style="font-weight: 600; font-size: 0.75rem;">Morning</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn-primary" style="flex: 1;">Add to Trip</button>
+                        <button class="btn-text" style="flex: 1; border: 1px solid #f97316; color: #f97316; border-radius: 8px;">Book Tour</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=500&h=300&fit=crop" alt="Arabuko Sokoke Forest" class="property-image">
+                <div class="property-content">
+                    <span class="amenity-tag">Wildlife & Adventure</span>
+                    <h3 class="property-title">Arabuko Sokoke Forest</h3>
+                    <p class="property-location">Rich coastal forest with birds, butterflies and wildlife</p>
+                    <div style="margin: 1rem 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: #666; font-size: 0.875rem;">Entry Fee:</span>
+                            <span style="font-weight: 600;">KES 600</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: #666; font-size: 0.875rem;">Duration:</span>
+                            <span style="font-weight: 600;">3 hours</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: #666; font-size: 0.875rem;">Best Time:</span>
+                            <span style="font-weight: 600; font-size: 0.75rem;">Early morning</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn-primary" style="flex: 1;">Add to Trip</button>
+                        <button class="btn-text" style="flex: 1; border: 1px solid #f97316; color: #f97316; border-radius: 8px;">Book Tour</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1535025639604-9a804c092faa?w=500&h=300&fit=crop" alt="Watamu Beach" class="property-image">
+                <div class="property-content">
+                    <span class="amenity-tag">Nature & Marine</span>
+                    <h3 class="property-title">Watamu Beach & Marine Park</h3>
+                    <p class="property-location">White sands, crystal clear water, snorkeling and marine life</p>
+                    <div style="margin: 1rem 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: #666; font-size: 0.875rem;">Entry Fee:</span>
+                            <span style="font-weight: 600;">KES 1,200</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: #666; font-size: 0.875rem;">Duration:</span>
+                            <span style="font-weight: 600;">4 hours</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: #666; font-size: 0.875rem;">Best Time:</span>
+                            <span style="font-weight: 600; font-size: 0.75rem;">All day</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn-primary" style="flex: 1;">Add to Trip</button>
+                        <button class="btn-text" style="flex: 1; border: 1px solid #f97316; color: #f97316; border-radius: 8px;">Book Tour</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxuryStay. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/attractions.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - LuxuryStay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <a href="index.html" class="logo">LuxuryStay</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container section" style="max-width: 500px; margin: 4rem auto;">
+        <div style="background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <h1 style="font-size: 2rem; margin-bottom: 0.5rem; text-align: center;">Welcome Back</h1>
+            <p style="text-align: center; color: #666; margin-bottom: 2rem;">Sign in to your LuxuryStay account</p>
+            
+            <form onsubmit="handleLogin(event)">
+                <div style="margin-bottom: 1.5rem;">
+                    <label class="filter-label">Email</label>
+                    <input type="email" class="input" style="width: 100%;" placeholder="your@email.com" required>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <label class="filter-label">Password</label>
+                    <input type="password" class="input" style="width: 100%;" placeholder="••••••••" required>
+                </div>
+                
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 0.75rem;">Sign In</button>
+            </form>
+            
+            <p style="text-align: center; margin-top: 1.5rem; color: #666;">
+                Don't have an account? <a href="register.html" style="color: #f97316; font-weight: 600;">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault()
+            alert('Login functionality will be connected to backend API')
+            window.location.href = 'index.html'
+        }
+    </script>
+</body>
+</html>

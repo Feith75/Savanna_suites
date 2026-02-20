@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Host Dashboard - LuxuryStay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <a href="index.html" class="logo">LuxuryStay</a>
+                <nav class="nav-links">
+                    <a href="host-dashboard.html" class="highlight">Dashboard</a>
+                    <a href="list-property.html">Add Property</a>
+                </nav>
+                <div class="nav-actions">
+                    <button class="btn-text" onclick="window.location.href='index.html'">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container section">
+        <h1 class="section-title">Host Dashboard</h1>
+        
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <p style="color: #666; font-size: 0.875rem; margin-bottom: 0.5rem;">Total Earnings</p>
+                <p style="font-size: 2rem; font-weight: bold; color: #16a34a;">KES 450,000</p>
+                <p style="color: #16a34a; font-size: 0.875rem;">↑ 12% from last month</p>
+            </div>
+            
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <p style="color: #666; font-size: 0.875rem; margin-bottom: 0.5rem;">Active Bookings</p>
+                <p style="font-size: 2rem; font-weight: bold; color: #f97316;">8</p>
+                <p style="color: #666; font-size: 0.875rem;">3 check-ins today</p>
+            </div>
+            
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <p style="color: #666; font-size: 0.875rem; margin-bottom: 0.5rem;">Properties Listed</p>
+                <p style="font-size: 2rem; font-weight: bold; color: #3b82f6;">3</p>
+                <p style="color: #666; font-size: 0.875rem;">All approved</p>
+            </div>
+            
+            <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <p style="color: #666; font-size: 0.875rem; margin-bottom: 0.5rem;">Average Rating</p>
+                <p style="font-size: 2rem; font-weight: bold; color: #fbbf24;">4.9 ★</p>
+                <p style="color: #666; font-size: 0.875rem;">From 47 reviews</p>
+            </div>
+        </div>
+
+        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2 style="font-size: 1.5rem;">Your Properties</h2>
+                <button class="btn-primary" onclick="window.location.href='list-property.html'">+ Add New Property</button>
+            </div>
+            
+            <div class="grid">
+                <div class="property-card">
+                    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=500&h=300&fit=crop" class="property-image">
+                    <div class="property-content">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+                            <h3 class="property-title">Ocean View Penthouse</h3>
+                            <span style="background: #16a34a; color: white; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem;">Active</span>
+                        </div>
+                        <p class="property-location">Malindi Beach</p>
+                        <div style="display: flex; justify-content: space-between; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #f3f4f6;">
+                            <div>
+                                <p style="font-size: 0.75rem; color: #666;">This Month</p>
+                                <p style="font-weight: bold;">KES 180,000</p>
+                            </div>
+                            <div>
+                                <p style="font-size: 0.75rem; color: #666;">Bookings</p>
+                                <p style="font-weight: bold;">12</p>
+                            </div>
+                        </div>
+                        <button class="btn-text" style="width: 100%; margin-top: 1rem; border: 1px solid #ddd; padding: 0.5rem; border-radius: 8px;">Manage Property</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Recent Bookings</h2>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid #f3f4f6;">
+                            <th style="text-align: left; padding: 1rem; font-size: 0.875rem; color: #666;">Guest</th>
+                            <th style="text-align: left; padding: 1rem; font-size: 0.875rem; color: #666;">Property</th>
+                            <th style="text-align: left; padding: 1rem; font-size: 0.875rem; color: #666;">Check-in</th>
+                            <th style="text-align: left; padding: 1rem; font-size: 0.875rem; color: #666;">Check-out</th>
+                            <th style="text-align: left; padding: 1rem; font-size: 0.875rem; color: #666;">Amount</th>
+                            <th style="text-align: left; padding: 1rem; font-size: 0.875rem; color: #666;">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #f3f4f6;">
+                            <td style="padding: 1rem;">John Kamau</td>
+                            <td style="padding: 1rem;">Ocean View Penthouse</td>
+                            <td style="padding: 1rem;">Feb 25, 2026</td>
+                            <td style="padding: 1rem;">Feb 28, 2026</td>
+                            <td style="padding: 1rem; font-weight: 600;">KES 45,000</td>
+                            <td style="padding: 1rem;"><span style="background: #16a34a; color: white; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem;">Confirmed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxuryStay. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Your Property - LuxuryStay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <a href="index.html" class="logo">LuxuryStay</a>
+                <nav class="nav-links">
+                    <a href="properties.html">Properties</a>
+                    <a href="chefs.html">Chefs</a>
+                    <a href="transport.html">Transport</a>
+                    <a href="attractions.html">Attractions</a>
+                    <a href="build-trip.html" class="highlight">Build My Trip</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="properties-hero">
+        <div class="container">
+            <h1>List Your Luxury Property</h1>
+            <p style="font-size: 1.125rem; opacity: 0.9;">Join Kenya's premier luxury accommodation platform</p>
+        </div>
+    </div>
+
+    <div class="container section" style="max-width: 900px; margin: 2rem auto;">
+        <div style="background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <form id="listPropertyForm" onsubmit="handleSubmit(event)">
+                <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Property Information</h2>
+                <p style="color: #666; margin-bottom: 2rem;">Tell us about your luxury property</p>
+
+                <div style="margin-bottom: 2rem;">
+                    <label class="filter-label">Property Name *</label>
+                    <input type="text" class="input" style="width: 100%;" placeholder="e.g., Ocean View Penthouse" required>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <label class="filter-label">Property Type *</label>
+                    <select class="input" style="width: 100%;" required>
+                        <option value="">Select type</option>
+                        <option>Penthouse</option>
+                        <option>Villa</option>
+                        <option>Apartment</option>
+                        <option>Beach House</option>
+                        <option>Cottage</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <label class="filter-label">Description *</label>
+                    <textarea class="input" style="width: 100%; min-height: 120px; resize: vertical;" placeholder="Describe your property, its unique features, and what makes it special..." required></textarea>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                    <div>
+                        <label class="filter-label">Location *</label>
+                        <input type="text" class="input" style="width: 100%;" placeholder="e.g., Malindi Beach" required>
+                    </div>
+                    <div>
+                        <label class="filter-label">Price per Night (KES) *</label>
+                        <input type="number" class="input" style="width: 100%;" placeholder="15000" min="1000" required>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                    <div>
+                        <label class="filter-label">Bedrooms *</label>
+                        <input type="number" class="input" style="width: 100%;" min="1" required>
+                    </div>
+                    <div>
+                        <label class="filter-label">Bathrooms *</label>
+                        <input type="number" class="input" style="width: 100%;" min="1" required>
+                    </div>
+                    <div>
+                        <label class="filter-label">Max Guests *</label>
+                        <input type="number" class="input" style="width: 100%;" min="1" required>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <label class="filter-label">Amenities</label>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem;">
+                        <div class="filter-checkbox">
+                            <input type="checkbox" id="wifi-amenity">
+                            <label for="wifi-amenity">WiFi</label>
+                        </div>
+                        <div class="filter-checkbox">
+                            <input type="checkbox" id="pool-amenity">
+                            <label for="pool-amenity">Swimming Pool</label>
+                        </div>
+                        <div class="filter-checkbox">
+                            <input type="checkbox" id="ac-amenity">
+                            <label for="ac-amenity">Air Conditioning</label>
+                        </div>
+                        <div class="filter-checkbox">
+                            <input type="checkbox" id="kitchen-amenity">
+                            <label for="kitchen-amenity">Full Kitchen</label>
+                        </div>
+                        <div class="filter-checkbox">
+                            <input type="checkbox" id="parking-amenity">
+                            <label for="parking-amenity">Parking</label>
+                        </div>
+                        <div class="filter-checkbox">
+                            <input type="checkbox" id="beach-amenity">
+                            <label for="beach-amenity">Beach Access</label>
+                        </div>
+                        <div class="filter-checkbox">
+                            <input type="checkbox" id="gym-amenity">
+                            <label for="gym-amenity">Gym</label>
+                        </div>
+                        <div class="filter-checkbox">
+                            <input type="checkbox" id="security-amenity">
+                            <label for="security-amenity">24/7 Security</label>
+                        </div>
+                        <div class="filter-checkbox">
+                            <input type="checkbox" id="ocean-amenity">
+                            <label for="ocean-amenity">Ocean View</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <label class="filter-label">Property Images *</label>
+                    <div style="border: 2px dashed #ddd; border-radius: 12px; padding: 2rem; text-align: center; cursor: pointer;" onclick="document.getElementById('imageUpload').click()">
+                        <input type="file" id="imageUpload" multiple accept="image/*" style="display: none;" onchange="handleImageUpload(event)">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">📷</div>
+                        <p style="color: #666; margin-bottom: 0.5rem;">Click to upload property images</p>
+                        <p style="color: #999; font-size: 0.875rem;">Upload at least 5 high-quality photos (JPG, PNG)</p>
+                    </div>
+                    <div id="imagePreview" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; margin-top: 1rem;"></div>
+                </div>
+
+                <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem; margin-top: 3rem;">Contact Information</h2>
+                <p style="color: #666; margin-bottom: 2rem;">How can guests reach you?</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                    <div>
+                        <label class="filter-label">Your Name *</label>
+                        <input type="text" class="input" style="width: 100%;" required>
+                    </div>
+                    <div>
+                        <label class="filter-label">Email *</label>
+                        <input type="email" class="input" style="width: 100%;" required>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <label class="filter-label">Phone Number *</label>
+                    <input type="tel" class="input" style="width: 100%;" placeholder="+254 700 000 000" required>
+                </div>
+
+                <div style="background: #fef3c7; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem; color: #92400e;">📋 What Happens Next?</h3>
+                    <ul style="color: #92400e; font-size: 0.875rem; margin-left: 1.5rem;">
+                        <li>Our team will review your property within 24-48 hours</li>
+                        <li>We'll verify all information and images</li>
+                        <li>Once approved, your property goes live on LuxuryStay</li>
+                        <li>You'll receive booking notifications via email and SMS</li>
+                        <li>We handle payments and take a 15% commission</li>
+                    </ul>
+                </div>
+
+                <div class="filter-checkbox" style="margin-bottom: 2rem;">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <a href="#" style="color: #f97316;">Terms & Conditions</a> and <a href="#" style="color: #f97316;">Host Agreement</a></label>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 1rem; font-size: 1.125rem;">
+                    Submit Property for Review
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxuryStay. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let uploadedImages = []
+
+        function handleImageUpload(event) {
+            const files = event.target.files
+            const preview = document.getElementById('imagePreview')
+            
+            Array.from(files).forEach(file => {
+                if (uploadedImages.length >= 10) {
+                    alert('Maximum 10 images allowed')
+                    return
+                }
+                
+                const reader = new FileReader()
+                reader.onload = (e) => {
+                    uploadedImages.push(e.target.result)
+                    const img = document.createElement('div')
+                    img.style.cssText = 'height: 100px; background-size: cover; background-position: center; border-radius: 8px; position: relative;'
+                    img.style.backgroundImage = `url(${e.target.result})`
+                    
+                    const removeBtn = document.createElement('button')
+                    removeBtn.innerHTML = '×'
+                    removeBtn.style.cssText = 'position: absolute; top: 5px; right: 5px; background: red; color: white; border: none; border-radius: 50%; width: 25px; height: 25px; cursor: pointer;'
+                    removeBtn.onclick = () => {
+                        img.remove()
+                        uploadedImages = uploadedImages.filter(i => i !== e.target.result)
+                    }
+                    
+                    img.appendChild(removeBtn)
+                    preview.appendChild(img)
+                }
+                reader.readAsDataURL(file)
+            })
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault()
+            
+            if (uploadedImages.length < 5) {
+                alert('Please upload at least 5 images of your property')
+                return
+            }
+            
+            const formData = new FormData(event.target)
+            
+            alert('Thank you for submitting your property!\n\nOur team will review it within 24-48 hours and contact you via email.\n\nProperty ID: #LUX-' + Math.floor(Math.random() * 10000))
+            
+            setTimeout(() => {
+                window.location.href = 'index.html'
+            }, 2000)
+        }
+    </script>
+</body>
+</html>

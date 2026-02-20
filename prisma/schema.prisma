@@ -1,0 +1,267 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String
+  phone         String?
+  role          UserRole  @default(GUEST)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  bookings      Booking[]
+  properties    Property[]
+  reviews       Review[]
+  favorites     Favorite[]
+  chefProfile   ChefProfile?
+  driverProfile DriverProfile?
+}
+
+enum UserRole {
+  GUEST
+  HOST
+  CHEF
+  DRIVER
+  ADMIN
+}
+
+model Property {
+  id              String   @id @default(cuid())
+  name            String
+  description     String
+  location        String
+  latitude        Float?
+  longitude       Float?
+  pricePerNight   Float
+  bedrooms        Int
+  bathrooms       Int
+  guestCapacity   Int
+  cleaningFee     Float    @default(0)
+  status          PropertyStatus @default(PENDING)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  hostId          String
+  host            User     @relation(fields: [hostId], references: [id])
+  
+  amenities       PropertyAmenity[]
+  images          PropertyImage[]
+  bookings        Booking[]
+  reviews         Review[]
+  favorites       Favorite[]
+  availability    PropertyAvailability[]
+}
+
+enum PropertyStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  SUSPENDED
+}
+
+model PropertyAmenity {
+  id         String   @id @default(cuid())
+  name       String
+  icon       String?
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+}
+
+model PropertyImage {
+  id         String   @id @default(cuid())
+  url        String
+  isPrimary  Boolean  @default(false)
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+}
+
+model PropertyAvailability {
+  id         String   @id @default(cuid())
+  date       DateTime
+  available  Boolean  @default(true)
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  
+  @@unique([propertyId, date])
+}
+
+model Booking {
+  id              String   @id @default(cuid())
+  checkIn         DateTime
+  checkOut        DateTime
+  guests          Int
+  totalAmount     Float
+  status          BookingStatus @default(PENDING)
+  paymentStatus   PaymentStatus @default(PENDING)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  guestId         String
+  guest           User     @relation(fields: [guestId], references: [id])
+  propertyId      String
+  property        Property @relation(fields: [propertyId], references: [id])
+  
+  chefBooking     ChefBooking?
+  rideBooking     RideBooking?
+  tourBookings    TourBooking[]
+  payment         Payment?
+  review          Review?
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  REFUNDED
+  FAILED
+}
+
+model ChefProfile {
+  id          String   @id @default(cuid())
+  bio         String
+  cuisineTypes String[]
+  pricePerDay Float
+  rating      Float    @default(0)
+  status      ServiceProviderStatus @default(PENDING)
+  
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id])
+  
+  bookings    ChefBooking[]
+}
+
+model ChefBooking {
+  id          String   @id @default(cuid())
+  serviceType String
+  date        DateTime
+  price       Float
+  status      BookingStatus @default(PENDING)
+  
+  bookingId   String   @unique
+  booking     Booking  @relation(fields: [bookingId], references: [id])
+  chefId      String
+  chef        ChefProfile @relation(fields: [chefId], references: [id])
+}
+
+model DriverProfile {
+  id          String   @id @default(cuid())
+  bio         String
+  vehicleType String
+  pricePerHour Float
+  pricePerDay Float
+  rating      Float    @default(0)
+  status      ServiceProviderStatus @default(PENDING)
+  
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id])
+  
+  bookings    RideBooking[]
+}
+
+enum ServiceProviderStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  SUSPENDED
+}
+
+model RideBooking {
+  id          String   @id @default(cuid())
+  serviceType String
+  pickupLocation String
+  dropoffLocation String?
+  date        DateTime
+  duration    Int?
+  price       Float
+  status      BookingStatus @default(PENDING)
+  
+  bookingId   String   @unique
+  booking     Booking  @relation(fields: [bookingId], references: [id])
+  driverId    String
+  driver      DriverProfile @relation(fields: [driverId], references: [id])
+}
+
+model Attraction {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  location    String
+  category    String
+  entryFee    Float?
+  estimatedDuration Int
+  bestTimeToVisit String?
+  distance    Float?
+  images      String[]
+  
+  tourBookings TourBooking[]
+}
+
+model TourBooking {
+  id          String   @id @default(cuid())
+  date        DateTime
+  guests      Int
+  price       Float
+  includesTransport Boolean @default(false)
+  
+  bookingId   String
+  booking     Booking  @relation(fields: [bookingId], references: [id])
+  attractionId String
+  attraction  Attraction @relation(fields: [attractionId], references: [id])
+}
+
+model Review {
+  id          String   @id @default(cuid())
+  rating      Int
+  comment     String?
+  createdAt   DateTime @default(now())
+  
+  bookingId   String   @unique
+  booking     Booking  @relation(fields: [bookingId], references: [id])
+  propertyId  String
+  property    Property @relation(fields: [propertyId], references: [id])
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+}
+
+model Favorite {
+  id         String   @id @default(cuid())
+  createdAt  DateTime @default(now())
+  
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id])
+  
+  @@unique([userId, propertyId])
+}
+
+model Payment {
+  id              String   @id @default(cuid())
+  amount          Float
+  method          PaymentMethod
+  transactionId   String?
+  status          PaymentStatus @default(PENDING)
+  createdAt       DateTime @default(now())
+  
+  bookingId       String   @unique
+  booking         Booking  @relation(fields: [bookingId], references: [id])
+}
+
+enum PaymentMethod {
+  MPESA
+  CARD
+  PAYPAL
+}

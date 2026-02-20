@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build My Trip - LuxuryStay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <a href="/" class="logo">LuxuryStay</a>
+                <nav class="nav-links">
+                    <a href="/properties.html">Properties</a>
+                    <a href="/chefs.html">Chefs</a>
+                    <a href="/transport.html">Transport</a>
+                    <a href="/attractions.html">Attractions</a>
+                    <a href="/build-trip.html" class="highlight">Build My Trip</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container section">
+        <h1 class="section-title">Build My Complete Trip</h1>
+        <p style="color: #666; margin-bottom: 0.5rem;">Create your perfect vacation package</p>
+        <p style="color: #f97316; font-weight: 600; margin-bottom: 2rem;">Save up to 15% when you bundle!</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 400px; gap: 2rem;">
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <!-- Property Selection -->
+                <div style="background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h2 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">1. Select Property</h2>
+                    <div style="border: 2px solid #ddd; border-radius: 8px; padding: 1rem; cursor: pointer;" onclick="toggleSelection('property')">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <input type="checkbox" id="property-check">
+                            <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=100&h=80&fit=crop" style="width: 100px; height: 80px; border-radius: 8px; object-fit: cover;">
+                            <div style="flex: 1;">
+                                <h3 style="font-weight: bold;">Ocean View Penthouse</h3>
+                                <p style="font-size: 0.875rem; color: #666;">3 nights • 3 beds • 6 guests</p>
+                            </div>
+                            <p style="font-weight: bold; color: #f97316;">KES 45,000</p>
+                        </div>
+                    </div>
+                </div>

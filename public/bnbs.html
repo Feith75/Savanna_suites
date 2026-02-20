@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury BnBs - LuxuryStay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <a href="index.html" class="logo">LuxuryStay</a>
+                <nav class="nav-links">
+                    <a href="properties.html">Properties</a>
+                    <a href="bnbs.html" class="highlight">BnBs</a>
+                    <a href="chefs.html">Chefs</a>
+                    <a href="transport.html">Transport</a>
+                    <a href="attractions.html">Attractions</a>
+                    <a href="build-trip.html">Build My Trip</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="properties-hero">
+        <div class="container">
+            <h1>Luxury Bed & Breakfasts</h1>
+            <p style="font-size: 1.125rem; opacity: 0.9;">Experience authentic Kenyan hospitality with virtual tours</p>
+        </div>
+    </div>
+
+    <div class="container section">
+        <div class="grid">
+            <div class="property-card-enhanced">
+                <div class="property-image-container">
+                    <div class="property-favorite" onclick="event.stopPropagation(); toggleFavorite(event)">❤</div>
+                    <div class="property-badge">Featured</div>
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&h=400&fit=crop" alt="Beachfront Villa" class="property-image-enhanced">
+                    <div onclick="openVirtualTour('ocean-villa')" style="position: absolute; bottom: 1rem; left: 1rem; background: rgba(249, 115, 22, 0.95); color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; cursor: pointer; z-index: 5;">
+                        🏠 Virtual Tour
+                    </div>
+                </div>
+                <div class="property-content-enhanced">
+                    <div class="property-type">Beachfront Villa</div>
+                    <h3 class="property-title-enhanced">Sunset Paradise Villa</h3>
+                    <div class="property-location-enhanced">
+                        <span>📍</span>
+                        <span>Malindi Beach, Kenya</span>
+                    </div>
+                    <p style="color: #666; font-size: 0.875rem; margin: 0.75rem 0;">
+                        Stunning beachfront villa with private pool, direct beach access, and breathtaking ocean views.
+                    </p>
+                    <div class="property-stats">
+                        <div class="property-stat"><span>🛏️</span><span>5 Beds</span></div>
+                        <div class="property-stat"><span>🚿</span><span>4 Baths</span></div>
+                        <div class="property-stat"><span>👥</span><span>10 Guests</span></div>
+                    </div>
+                    <div class="property-amenities-enhanced">
+                        <span class="amenity-badge">Private Pool</span>
+                        <span class="amenity-badge">Beach Access</span>
+                        <span class="amenity-badge">WiFi</span>
+                    </div>
+                    <div class="property-footer">
+                        <div class="property-price-enhanced">
+                            <span class="price-amount">KES 35,000</span>
+                            <span class="price-period">per night</span>
+                        </div>
+                        <div class="property-rating-enhanced">
+                            <span class="rating-star">★</span>
+                            <span class="rating-value">4.9</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card-enhanced">
+                <div class="property-image-container">
+                    <div class="property-favorite" onclick="event.stopPropagation(); toggleFavorite(event)">❤</div>
+                    <div class="property-badge">New</div>
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop" alt="Garden Cottage" class="property-image-enhanced">
+                    <div onclick="openVirtualTour('garden-cottage')" style="position: absolute; bottom: 1rem; left: 1rem; background: rgba(249, 115, 22, 0.95); color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; cursor: pointer; z-index: 5;">
+                        🏠 Virtual Tour
+                    </div>
+                </div>
+                <div class="property-content-enhanced">
+                    <div class="property-type">Garden Cottage</div>
+                    <h3 class="property-title-enhanced">Tropical Garden Retreat</h3>
+                    <div class="property-location-enhanced">
+                        <span>📍</span>
+                        <span>Watamu, Kenya</span>
+                    </div>
+                    <p style="color: #666; font-size: 0.875rem; margin: 0.75rem 0;">
+                        Charming cottage surrounded by lush tropical gardens with modern amenities.
+                    </p>
+                    <div class="property-stats">
+                        <div class="property-stat"><span>🛏️</span><span>3 Beds</span></div>
+                        <div class="property-stat"><span>🚿</span><span>2 Baths</span></div>
+                        <div class="property-stat"><span>👥</span><span>6 Guests</span></div>
+                    </div>
+                    <div class="property-amenities-enhanced">
+                        <span class="amenity-badge">Garden</span>
+                        <span class="amenity-badge">BBQ Area</span>
+                        <span class="amenity-badge">WiFi</span>
+                    </div>
+                    <div class="property-footer">
+                        <div class="property-price-enhanced">
+                            <span class="price-amount">KES 18,000</span>
+                            <span class="price-period">per night</span>
+                        </div>
+                        <div class="property-rating-enhanced">
+                            <span class="rating-star">★</span>
+                            <span class="rating-value">4.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="property-card-enhanced">
+                <div class="property-image-container">
+                    <div class="property-favorite" onclick="event.stopPropagation(); toggleFavorite(event)">❤</div>
+                    <div class="property-badge">Popular</div>
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop" alt="Modern Loft" class="property-image-enhanced">
+                    <div onclick="openVirtualTour('modern-loft')" style="position: absolute; bottom: 1rem; left: 1rem; background: rgba(249, 115, 22, 0.95); color: white; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; cursor: pointer; z-index: 5;">
+                        🏠 Virtual Tour
+                    </div>
+                </div>
+                <div class="property-content-enhanced">
+                    <div class="property-type">Modern Loft</div>
+                    <h3 class="property-title-enhanced">Urban Luxury Loft</h3>
+                    <div class="property-location-enhanced">
+                        <span>📍</span>
+                        <span>Malindi Town, Kenya</span>
+                    </div>
+                    <p style="color: #666; font-size: 0.875rem; margin: 0.75rem 0;">
+                        Contemporary loft with high ceilings, designer furniture, and rooftop terrace.
+                    </p>
+                    <div class="property-stats">
+                        <div class="property-stat"><span>🛏️</span><span>2 Beds</span></div>
+                        <div class="property-stat"><span>🚿</span><span>2 Baths</span></div>
+                        <div class="property-stat"><span>👥</span><span>4 Guests</span></div>
+                    </div>
+                    <div class="property-amenities-enhanced">
+                        <span class="amenity-badge">Rooftop</span>
+                        <span class="amenity-badge">City View</span>
+                        <span class="amenity-badge">WiFi</span>
+                    </div>
+                    <div class="property-footer">
+                        <div class="property-price-enhanced">
+                            <span class="price-amount">KES 14,000</span>
+                            <span class="price-period">per night</span>
+                        </div>
+                        <div class="property-rating-enhanced">
+                            <span class="rating-star">★</span>
+                            <span class="rating-value">5.0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="virtualTourModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 1000; overflow-y: auto;">
+        <div style="position: relative; max-width: 1400px; margin: 2rem auto; padding: 2rem;">
+            <button onclick="closeVirtualTour()" style="position: absolute; top: 1rem; right: 1rem; background: white; border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; z-index: 10;">×</button>
+            <div id="tourContent"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxuryStay. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/bnbs.js"></script>
+</body>
+</html>
