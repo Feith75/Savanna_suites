@@ -6,5 +6,5 @@ dist
 build
 *.log
 .DS_Store
-.env.example
+# .env.example should be committed - do not ignore it
 
