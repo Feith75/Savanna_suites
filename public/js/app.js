@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/api'
+const API_URL = '/api'
 
 async function fetchProperties() {
     try {
@@ -191,4 +191,44 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         })
     })
+})
+
+// ── Mobile hamburger menu (shared across all pages) ──
+function toggleMenu() {
+    const nav = document.getElementById('mobileNav')
+    const btn = document.getElementById('hamburger')
+    if (!nav || !btn) return
+    nav.classList.toggle('open')
+    btn.classList.toggle('open')
+}
+
+// Inject hamburger + mobile nav into every page that has a .nav element
+document.addEventListener('DOMContentLoaded', function () {
+    const navEl = document.querySelector('.nav')
+    const header = document.querySelector('.header')
+    if (!navEl || document.getElementById('hamburger')) return
+
+    // Add hamburger button
+    const hamburger = document.createElement('button')
+    hamburger.id = 'hamburger'
+    hamburger.className = 'hamburger'
+    hamburger.setAttribute('aria-label', 'Toggle menu')
+    hamburger.innerHTML = '<span></span><span></span><span></span>'
+    hamburger.onclick = toggleMenu
+    navEl.appendChild(hamburger)
+
+    // Build mobile nav from existing desktop nav-links
+    const desktopLinks = document.querySelector('.nav-links')
+    if (!desktopLinks) return
+
+    const mobileNav = document.createElement('nav')
+    mobileNav.id = 'mobileNav'
+    mobileNav.className = 'mobile-nav'
+    mobileNav.innerHTML = desktopLinks.innerHTML +
+        `<div class="mobile-nav-actions">
+            <button class="btn-primary" onclick="window.location.href='list-property.html'">List Property</button>
+            <button class="btn-text" onclick="window.location.href='login.html'">Sign In</button>
+        </div>`
+
+    header.appendChild(mobileNav)
 })

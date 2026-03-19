@@ -32,6 +32,9 @@
                     <button class="btn-text" onclick="window.location.href='login.html'">Sign In</button>
                     <button class="btn-primary" onclick="window.location.href='list-property.html'">List Property</button>
                 </div>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
     </header>
@@ -244,6 +247,12 @@
     <script src="/js/app.js"></script>
     <script src="/js/cart.js"></script>
     <script>
+        function toggleMenu() {
+            const nav = document.getElementById('mobileNav')
+            const btn = document.getElementById('hamburger')
+            nav.classList.toggle('open')
+            btn.classList.toggle('open')
+        }
         // Image slider functionality
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slider-image');
