@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 // ── Mobile hamburger menu (shared across all pages) ──
-function toggleMenu() {
+window.toggleMenu = function () {
     const nav = document.getElementById('mobileNav')
     const btn = document.getElementById('hamburger')
     if (!nav || !btn) return
